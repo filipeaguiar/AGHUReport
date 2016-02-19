@@ -1,0 +1,25 @@
+{
+  "name": "aghureport",
+  "version": "1.0.0",
+  "description": "Ferramenta de relatórios para o sistema hospitalar AGHU.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "Report",
+    "Relatório",
+    "Slim",
+    "PHP",
+    "Angular",
+    "Material",
+    "Design",
+    "Lite"
+  ],
+  "author": "Filipe Aguiar",
+  "license": "ISC",
+  "devDependencies": {
+    "bower": "^1.7.7",
+    "browser-sync": "^2.11.1"
+  }
+}

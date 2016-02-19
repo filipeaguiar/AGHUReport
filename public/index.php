@@ -33,11 +33,7 @@ function getIndicadores() {
 }
 
 function getConnection() {
-  $dbhost="10.10.0.80";
-  $dbuser="ugen_integra";
-  $dbport="6544";
-  $dbpass="aghuintegracao";
-  $dbname="dbaghu";
+  require_once( "config.php" );
   $dbh = new PDO("pgsql:host=$dbhost;port=$dbport;dbname=$dbname", $dbuser, $dbpass);
   $dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
   return $dbh;

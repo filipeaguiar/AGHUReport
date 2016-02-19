@@ -34,7 +34,7 @@ function getIndicadores() {
 
 function getConnection() {
   require_once( "config.php" );
-  $dbh = new PDO("pgsql:host=$dbhost;port=$dbport;dbname=$dbname", $dbuser, $dbpass);
+  $dbh = new PDO("pgsql:host=$dbhost;port=$dbport;dbname=$dbname", $dbuser, $dbpass); //config.php
   $dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
   return $dbh;
 }

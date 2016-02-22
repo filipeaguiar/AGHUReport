@@ -4,7 +4,8 @@
   "description": "Ferramenta de relatórios para o sistema hospitalar AGHU.",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "pserver" : "php -S 0.0.0.0:8080 -t public public/index.php"
   },
   "keywords": [
     "Report",

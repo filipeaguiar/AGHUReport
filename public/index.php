@@ -8,6 +8,7 @@ use \Psr\Http\Message\ResponseInterface as Response;
 
 $app = new \Slim\App();
 
+require __DIR__ . '/../src/indicadores.php';
 require __DIR__ . '/../src/routes.php';
 
 $app->run();

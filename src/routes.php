@@ -4,6 +4,4 @@ $indicadores = new Indicador;
 
 $app->get('/indicadores', $indicadores->getIndicadores());
 
-$app->get('/info', function(){
-  return phpinfo();
-});
+$app->get('/indicadores/geral', $indicadores->getGeral("",""));

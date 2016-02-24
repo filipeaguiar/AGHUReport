@@ -3,12 +3,12 @@
 /**
  *
  */
-// class indicadores
-// {
-//   function __construct()
-//   {
-//
-//   }
+class Indicador
+{
+  function __construct()
+  {
+
+  }
 
   function getGeral($inicio, $fim){
     $geral = "SELECT * FROM ". getenv('DB_SCHEMA') .".ain_ind_hospitalar_resumido WHERE tipo_indicador = 'G'";
@@ -21,7 +21,7 @@
     $indicadores = queryIndicadores( $sql );
     echo ( $indicadores );
   }
-// }
+}
 
 function getConnection() {
   $dbh = new PDO("pgsql:host=" .getenv('DB_HOST'). ";port=" .getenv('DB_PORT'). ";dbname=" . getenv('DB_NAME'), getenv('DB_USER'), getenv('DB_PASS')); //variaves de ambiente

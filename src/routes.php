@@ -1,7 +1,5 @@
 <?php
 
-$indicadores = new Indicador;
-
-$app->get('/indicadores', $indicadores->getIndicadores());
-
-$app->get('/indicadores/geral', $indicadores->getGeral("",""));
+$app->get('/', function(\Slim\Http\Request $req, \Slim\Http\Response $res){
+    return $res->write(file_get_contents(__DIR__ . '/../Templates/index.html'));
+});

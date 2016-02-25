@@ -7,6 +7,7 @@ Ferramenta para visualização de relatórios da plataforma AGHU
 bower install
 npm install
 composer install
+composer dumpautoload
 ```
 
 Create a `.env` file on the project folder using this template:

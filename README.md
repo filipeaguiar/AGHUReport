@@ -9,11 +9,25 @@ npm install
 composer install
 ```
 
+Create a `.env` file on the project folder using this template:
+
+```
+DEBUG=true
+CACHETIME=600
+
+DB_HOST   = <Server IP>
+DB_PORT   = <Server Port>
+DB_NAME   = <DB Name>
+DB_SCHEMA = <DB Schema>
+DB_USER   = <DB User>
+DB_PASS   = <DB Password>
+```
+
 # Executing
 
 ## PHP builtin server
 ```
-php -S 0.0.0.0:8080 -t public public/index.php
+npm run pserver
 ```
 
 ## Apache

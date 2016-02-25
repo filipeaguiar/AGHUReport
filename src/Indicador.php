@@ -1,4 +1,6 @@
 <?php
+namespace AGHUReport;
+use \PDO;
 
 /**
  *
@@ -10,16 +12,16 @@ class Indicador
 
   }
 
-  function getGeral($inicio, $fim){
+  function getGeral(){
     $geral = "SELECT * FROM ". getenv('DB_SCHEMA') .".ain_ind_hospitalar_resumido WHERE tipo_indicador = 'G'";
     $indicadores = queryIndicadores( $geral );
-    echo ( $indicadores );
+    echo ( json_encode($indicadores) );
   }
 
   function getIndicadores() {
     $sql = "SELECT * FROM ". getenv('DB_SCHEMA') .".ain_ind_hospitalar_resumido";
     $indicadores = queryIndicadores( $sql );
-    echo ( $indicadores );
+    echo ( json_encode($indicadores) );
   }
 }
 

@@ -6,5 +6,5 @@ $app->get('/', function(\Slim\Http\Request $req, \Slim\Http\Response $res){
 
 $app->get('/indicadores', function(\Slim\Http\Request $req, \Slim\Http\Response $res){
     $indicadores = new AGHUReport\Indicador();
-    return $res->write($indicadores->getIndicadores());
+    return $res->withJson($indicadores->getGeral());
 });

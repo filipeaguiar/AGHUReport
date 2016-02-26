@@ -2,6 +2,11 @@
 
 Ferramenta para visualização de relatórios da plataforma AGHU
 
+# Dependencies
+- php 5.4
+- postgresql
+- php5-pgsql driver
+
 # Install
 ```
 bower install

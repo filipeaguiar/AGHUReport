@@ -6,5 +6,10 @@ $app->get('/', function(\Slim\Http\Request $req, \Slim\Http\Response $res){
 
 $app->get('/indicadores', function(\Slim\Http\Request $req, \Slim\Http\Response $res){
     $indicadores = new AGHUReport\Indicador();
-    return $res->withJson($indicadores->getGeral());
+    return $res->write( $indicadores->getGeral() );
+});
+
+$app->get('/ocupacao', function(\Slim\Http\Request $req, \Slim\Http\Response $res){
+    $indicadores = new AGHUReport\Ocupacao();
+    return $res->withJson( $indicadores->getTaxaOcupacao() );
 });

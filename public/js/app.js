@@ -1,19 +1,14 @@
 /* global angular */
-var aghureport = angular.module('aghureport', []);
+var aghureport = angular.module('aghureport', ['angular.morris-chart']);
 
 angular.module('aghureport').controller('TaxaDePermanenciaController', function ($scope, $http) {
-  var ocupacao = $http.get('/ocupacao').success(function (data) {
-    plot(data);
+  $http.get('/ocupacao').success(function (data) {
+    $scope.ocupacao = data;
+    $scope.xaxis = 'mes';
+    $scope.yaxis = ['txo'];
+    $scope.label = ['Taxa de Permanência'];
+  })
+  .error(function (data, status) {
+    $scope.error = 'Erro' + data;
   });
-
-  plot = function plot(plotData) {
-    Morris.Bar({
-      element: 'chart',
-      data: plotData,
-      barColors: ['teal'],
-      xkey: 'mes',
-      ykeys: ['txo'],
-      labels: ['Taxa de Ocupação'],
-    });
-  };
 });

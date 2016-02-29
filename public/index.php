@@ -7,23 +7,23 @@ if (PHP_SAPI == 'cli-server') {
 }
 
 require __DIR__ . '/../vendor/autoload.php';
-require __DIR__ . '/../src/services/DBConnect.php';
-require __DIR__ . '/../src/routes.php';
 
+/** @var \Dotenv\Dotenv $dotenv Carrega configurações de ambiente */
 $dotenv = new Dotenv\Dotenv(__DIR__ . '/..');
 $dotenv->load();
 
-use \Psr\Http\Message\ServerRequestInterface as Request;
-use \Psr\Http\Message\ResponseInterface as Response;
+$app = new \Slim\App([
+    'settings' => ['displayErrorDetails' => getenv('DEBUG')]
+]);
 
-$configuration = [ //DEBUG
-    'settings' => [
-        'displayErrorDetails' => true,
-    ],
-];
-$c = new \Slim\Container($configuration);
-$app = new \Slim\App($c);
+$container = $app->getContainer();
+
+$container = $app->getContainer();
+$container['dbconnect'] = function() {
+  new DBConnect();
+};
 
 // $app = new \Slim\App();
 
+require __DIR__ . '/../src/routes.php';
 $app->run();

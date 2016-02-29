@@ -15,6 +15,6 @@ $app->get('/ocupacao', function(\Slim\Http\Request $req, \Slim\Http\Response $re
 });
 
 $app->get('/permanencia', function(){
-  $permanencia = AGHUReport\Permanencia::all();
+  $permanencia = AGHUReport\Models\Permanencia::all();
   echo $permanencia->toJson();
 });

@@ -1,7 +1,7 @@
 <?php
-namespace AGHUReport;
+namespace AGHUReport\Models;
 use AGHUReport\Services\DBConnect as DBConnect;
-use Illuminate\Database\Eloquent\Model as Model;
+use Illuminate\Database\Eloquent\Model;
 
 class Permanencia extends Model
 {

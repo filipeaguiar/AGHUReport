@@ -1,26 +1,47 @@
 <?php
 namespace AGHUReport\Services;
-use Illuminate\Contracts\Container\Container
+use Illuminate\Database\Capsule\Manager as Capsule;
 
-// Database information
-$settings = array(
-    'driver' => 'pgsql',
-    'host' => getenv('DB_HOST'),
-    'port' => getenv('DB_PORT'),
-    'database' => getenv('DB_NAME'),
-    'username' => getenv('DB_USER'),
-    'password' => getenv('DB_PASS'),
-    'collation' => 'utf8_general_ci',
-    'prefix' => getenv('DB_SCHEMA')
-);
+class DBConnect {
 
-// Bootstrap Eloquent ORM
-$connFactory = new \Illuminate\Database\Connectors\ConnectionFactory();
-$conn = $connFactory->make($settings);
-$resolver = new \Illuminate\Database\ConnectionResolver();
-$resolver->addConnection('default', $conn);
-$resolver->setDefaultConnection('default');
-\Illuminate\Database\Eloquent\Model::setConnectionResolver($resolver);
+    function __construct(){
+        $capsule = new Capsule;
+        $capsule->addConnection([
+          'driver' => 'pgsql',
+          'host' => getenv('DB_HOST'),
+          'port' => getenv('DB_PORT'),
+          'database' => getenv('DB_NAME'),
+          'username' => getenv('DB_USER'),
+          'password' => getenv('DB_PASS'),
+          'charset' => 'utf8',
+          'prefix' => getenv('DB_SCHEMA')
+        ]);
+        $capsule->bootEloquent();
+        $capsule->setAsGlobal();
+    }
+}
+
+// use Illuminate\Contracts\Container\Container;
+//
+// // Database information
+// $settings = array(
+//     'driver' => 'pgsql',
+//     'host' => getenv('DB_HOST'),
+//     'port' => getenv('DB_PORT'),
+//     'database' => getenv('DB_NAME'),
+//     'username' => getenv('DB_USER'),
+//     'password' => getenv('DB_PASS'),
+//     'collation' => 'utf8_general_ci',
+//     'prefix' => getenv('DB_SCHEMA')
+// );
+//
+// // Bootstrap Eloquent ORM
+// $connFactory = new \Illuminate\Database\Connectors\ConnectionFactory();
+// $conn = $connFactory->make($settings);
+// $resolver = new \Illuminate\Database\ConnectionResolver();
+// $resolver->addConnection('default', $conn);
+// $resolver->setDefaultConnection('default');
+// \Illuminate\Database\Eloquent\Model::setConnectionResolver($resolver);
 
 // namespace AGHUReport\Services;
 // use \PDO;

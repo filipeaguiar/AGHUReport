@@ -7,6 +7,8 @@ if (PHP_SAPI == 'cli-server') {
 }
 
 require __DIR__ . '/../vendor/autoload.php';
+require __DIR__ . '/../src/services/DBConnect.php';
+require __DIR__ . '/../src/routes.php';
 
 $dotenv = new Dotenv\Dotenv(__DIR__ . '/..');
 $dotenv->load();
@@ -23,7 +25,5 @@ $c = new \Slim\Container($configuration);
 $app = new \Slim\App($c);
 
 // $app = new \Slim\App();
-
-require __DIR__ . '/../src/routes.php';
 
 $app->run();

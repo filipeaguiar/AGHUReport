@@ -19,7 +19,7 @@ class Ocupacao
     .getenv('DB_SCHEMA').'.ain_ind_hospitalar_resumido '
     .'WHERE '
     .getenv('DB_SCHEMA').".ain_ind_hospitalar_resumido.tipo_indicador = 'G' AND "
-    .getenv('DB_SCHEMA').".ain_ind_hospitalar_resumido.competencia_internacao BETWEEN '2015-01-01' AND  '2016-03-01' "
+    .getenv('DB_SCHEMA').".ain_ind_hospitalar_resumido.competencia_internacao BETWEEN '2015-06-01' AND  '2016-03-01' "
     .'ORDER BY '
     .getenv('DB_SCHEMA').'.ain_ind_hospitalar_resumido.competencia_internacao ASC';
     $db = new DBConnect();

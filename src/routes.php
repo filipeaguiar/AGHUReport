@@ -13,3 +13,8 @@ $app->get('/ocupacao', function(\Slim\Http\Request $req, \Slim\Http\Response $re
     $indicadores = new AGHUReport\Ocupacao();
     return $res->withJson( $indicadores->getTaxaOcupacao() );
 });
+
+$app->get('/permanencia', function(){
+  $permanencia = AGHUReport\Permanencia::all();
+  echo $permanencia->toJson();
+});

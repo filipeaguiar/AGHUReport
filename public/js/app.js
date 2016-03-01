@@ -2,10 +2,10 @@
 var aghureport = angular.module('aghureport', ['angular.morris-chart']);
 
 angular.module('aghureport').controller('TaxaDePermanenciaController', function ($scope, $http) {
-  $http.get('/ocupacao').success(function (data) {
+  $http.get('/permanencia').success(function (data) {
     $scope.ocupacao = data;
-    $scope.xaxis = 'mes';
-    $scope.yaxis = ['txo'];
+    $scope.xaxis = 'competencia_internacao';
+    $scope.yaxis = ['taxa_ocupacao'];
     $scope.label = ['Taxa de Permanência'];
   })
   .error(function (data, status) {

@@ -13,4 +13,5 @@ class Permanencia extends Model
     protected $table = 'ain_ind_hospitalar_resumido';
     protected $primaryKey = 'seq';
     public $timestamps = 'false';
+    protected $visible = ['competencia_internacao', 'taxa_ocupacao'];
 }

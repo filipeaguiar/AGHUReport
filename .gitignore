@@ -4,3 +4,4 @@ node_modules
 vendor
 public/config.php
 public/vendors
+npm-debug.log

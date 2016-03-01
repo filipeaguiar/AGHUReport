@@ -14,7 +14,7 @@ $app->get('/ocupacao', function(\Slim\Http\Request $req, \Slim\Http\Response $re
     return $res->withJson( $indicadores->getTaxaOcupacao() );
 });
 
-$app->get('/permanencia', function(){
+$app->get('/permanencia', function(\Slim\Http\Request $req, \Slim\Http\Response $res){
   $permanencia = AGHUReport\Models\Permanencia::all();
-  echo $permanencia->toJson();
+  return $res->write($permanencia->toJson())->withHeader('Content-Type', 'application/json');
 });

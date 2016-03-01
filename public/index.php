@@ -18,12 +18,7 @@ $app = new \Slim\App([
 
 $container = $app->getContainer();
 
-$container = $app->getContainer();
-$container['dbconnect'] = function() {
-  new DBConnect();
-};
-
-// $app = new \Slim\App();
+require_once __DIR__ . '/../src/services/DBConnect.php';
 
 require __DIR__ . '/../src/routes.php';
 $app->run();

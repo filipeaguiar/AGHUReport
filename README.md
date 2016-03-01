@@ -1,6 +1,6 @@
 # AGHU Report Tool
 
-Ferramenta para visualização de relatórios da plataforma AGHU
+A Tool to visualize AGHU metrics
 
 # Dependencies
 - php 5.4
@@ -9,8 +9,8 @@ Ferramenta para visualização de relatórios da plataforma AGHU
 
 # Install
 ```
-bower install
 npm install
+bower install
 composer install
 composer dumpautoload
 ```

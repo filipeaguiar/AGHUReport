@@ -28,14 +28,15 @@
         <a class="mdl-navigation__link" href="#">You?</a>
       </nav>
     </div>
-    <main class="mdl-layout__content" ng-controller="TaxaDePermanenciaController as permanencia">
+    <main class="mdl-layout__content">
       <div class="mdl-grid">
-        <div class="mdl-cell mdl-cell--6-col">
+        <div class="mdl-cell mdl-cell--6-col" ng-controller="TaxaDePermanenciaController as permanencia">
           <div class="mdl-card mdl-shadow--4dp">
               <div class="mdl-card__title mdl-color--primary">
-              <h2 class="mdl-card__title-text mdl-color-text--primary-contrast">Taxa de Permanência</h2>
+              <h2 class="mdl-card__title-text mdl-color-text--primary-contrast">{{cardlabel}}</h2>
               </div>
-              <div bar-chart
+              <div class="chart"
+              bar-chart
               bar-data='ocupacao'
               bar-x='competencia_internacao'
               bar-y='yaxis'
@@ -47,14 +48,15 @@
               </div>
             </div>
         </div>
-        <div class="mdl-cell mdl-cell--6-col">
+        <div class="mdl-cell mdl-cell--6-col" ng-controller="TaxaDeMortalidadeController as mortalidade">
           <div class="mdl-card mdl-shadow--4dp">
               <div class="mdl-card__title mdl-color--primary">
-              <h2 class="mdl-card__title-text mdl-color-text--primary-contrast">Taxa de Permanência</h2>
+              <h2 class="mdl-card__title-text mdl-color-text--primary-contrast">{{cardlabel}}</h2>
               </div>
-              <div bar-chart
-              bar-data='ocupacao'
-              bar-x='mes'
+              <div class="chart"
+              bar-chart
+              bar-data='mortalidade'
+              bar-x='competencia_internacao'
               bar-y='yaxis'
               bar-labels='label'
               bar-colors='["#D32F2F"]'>

@@ -14,5 +14,10 @@ $app->get('/mortalidade/{inicio}/{fim}', function(\Slim\Http\Request $req, \Slim
   $mortalidade = new AGHUReport\Models\Mortalidade;
   $mortalidade = $mortalidade->where('tipo_indicador', 'G')->whereBetween('competencia_internacao', [$args['inicio'], $args['fim']])->orderBy('competencia_internacao', 'asc')->get();
   return $res->write($mortalidade->toJson())->withHeader('Content-Type', 'application/json');
-  // return $res->write($args['inicio']);
+});
+
+$app->get('/indicador/{tipo}/{inicio}/{fim}', function(\Slim\Http\Request $req, \Slim\Http\Response $res, $args){
+  $indicador = new AGHUReport\Models\Indicador;
+  $indicador = $indicador->where('tipo_indicador', $args['tipo'])->whereBetween('competencia_internacao', [$args['inicio'], $args['fim']])->orderBy('competencia_internacao', 'asc')->get();
+  return $res->write($indicador->toJson())->withHeader('Content-Type', 'application/json');
 });

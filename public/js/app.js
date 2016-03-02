@@ -26,17 +26,3 @@ angular.module('aghureport').controller('TaxaDeMortalidadeController', function 
     $scope.error = 'Erro' + data;
   });
 });
-
-angular.module('aghureport').controller('MortalidadeEspecialidadeController',
- function ($scope, $http) {
-  $http.get('/indicador/E/2016-01-01/2016-03-01').success(function (data) {
-    $scope.mortalidade = data;
-    $scope.xaxis = 'competencia_internacao';
-    $scope.yaxis = '["esp_seq", "taxa_mortalidade"]';
-    $scope.label = '["Especialidade", "Taxa de Mortalidade"]';
-    $scope.cardlabel = 'Taxa de Mortalidade';
-  })
-  .error(function (data, status) {
-    $scope.error = 'Erro' + data;
-  });
-});

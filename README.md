@@ -31,9 +31,9 @@ DB_PASS   = <DB Password>
 
 # Executing
 
-## PHP builtin server
+## PHP builtin server (with livereload)
 ```
-npm run pserver
+npm run server
 ```
 
 ## Apache

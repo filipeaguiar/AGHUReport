@@ -5,8 +5,8 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "bserver": "browser-sync start --proxy \"localhost:8080\" --files \"Templates/*.html, public/css/*.css\"",
-    "pserver" : "php -S 0.0.0.0:8080 -t public public/index.php"
+    "preserver": "php -S 0.0.0.0:8080 -t public public/index.php &",
+    "server": "browser-sync start --proxy \"localhost:8080\" --files \"Templates/*.html, public/css/*.css, public/js/*.js\""
   },
   "keywords": [
     "Report",

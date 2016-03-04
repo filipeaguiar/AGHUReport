@@ -15,7 +15,7 @@ composer install
 composer dumpautoload
 ```
 
-Create a `.env` file on the project folder using this template:
+Create an `.env` file on the project folder using this template:
 
 ```
 DEBUG=true

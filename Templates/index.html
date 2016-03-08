@@ -5,7 +5,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="description" content="Ferramenta para visualização de relatórios para o sistema AGHU">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>AGHU Report Tool </title>
+    <title>AGHU Report Tool
+    </title>
 
     <!-- Add to homescreen for Chrome on Android -->
     <meta name="mobile-web-app-capable" content="yes">
@@ -67,46 +68,66 @@
             <ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="accbtn">
               <li class="mdl-menu__item">hello@example.com</li>
               <li class="mdl-menu__item">info@example.com</li>
-              <li class="mdl-menu__item"><i class="material-icons">add</i>Add another account...</li>
+              <li class="mdl-menu__item">
+                <i class="material-icons">add</i>Add another account...</li>
             </ul>
           </div>
         </header>
         <nav class="demo-navigation mdl-navigation mdl-color--blue-grey-800">
-          <a class="mdl-navigation__link" href=""><i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">home</i>Home</a>
-          <a class="mdl-navigation__link" href=""><i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">inbox</i>Inbox</a>
-          <a class="mdl-navigation__link" href=""><i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">delete</i>Trash</a>
-          <a class="mdl-navigation__link" href=""><i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">report</i>Spam</a>
-          <a class="mdl-navigation__link" href=""><i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">forum</i>Forums</a>
-          <a class="mdl-navigation__link" href=""><i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">flag</i>Updates</a>
-          <a class="mdl-navigation__link" href=""><i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">local_offer</i>Promos</a>
-          <a class="mdl-navigation__link" href=""><i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">shopping_cart</i>Purchases</a>
-          <a class="mdl-navigation__link" href=""><i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">people</i>Social</a>
+          <a class="mdl-navigation__link" href="">
+            <i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">home</i>Home</a>
+          <a class="mdl-navigation__link" href="">
+            <i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">inbox</i>Inbox</a>
+          <a class="mdl-navigation__link" href="">
+            <i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">delete</i>Trash</a>
+          <a class="mdl-navigation__link" href="">
+            <i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">report</i>Spam</a>
+          <a class="mdl-navigation__link" href="">
+            <i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">forum</i>Forums</a>
+          <a class="mdl-navigation__link" href="">
+            <i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">flag</i>Updates</a>
+          <a class="mdl-navigation__link" href="">
+            <i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">local_offer</i>Promos</a>
+          <a class="mdl-navigation__link" href="">
+            <i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">shopping_cart</i>Purchases</a>
+          <a class="mdl-navigation__link" href="">
+            <i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">people</i>Social</a>
           <div class="mdl-layout-spacer"></div>
-          <a class="mdl-navigation__link" href=""><i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">help_outline</i><span class="visuallyhidden">Help</span></a>
+          <a class="mdl-navigation__link" href="">
+            <i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">help_outline</i>
+            <span class="visuallyhidden">Help</span>
+          </a>
         </nav>
       </div>
-    <main class="mdl-layout__content mdl-color--grey-100">
-      <div class="mdl-grid demo-content">
-        <div class="mdl-cell mdl-cell--6-col mdl-cell--4-col-tablet" ng-controller="TaxaDePermanenciaController">
-          <div class="mdl-card mdl-shadow--4dp">
+      <main class="mdl-layout__content mdl-color--grey-100">
+        <div class="mdl-grid demo-content">
+          <div class="mdl-cell mdl-cell--6-col mdl-cell--4-col-tablet" ng-controller="TaxaDePermanenciaController">
+            <div class="mdl-card mdl-shadow--4dp">
               <div class="mdl-card__title mdl-color--primary">
-              <h2 class="mdl-card__title-text mdl-color-text--primary-contrast"><i class="material-icons">hotel</i> {{cardlabel}}</h2>
+                <h2 class="mdl-card__title-text mdl-color-text--primary-contrast">
+                  <i class="material-icons">hotel</i>
+                  {{cardlabel}}</h2>
               </div>
               <div>
-
-                  <div id="permanencia"></div>
-
+                <div id="permanencia"></div>
               </div>
-              <div class="mdl-card__actions  mdl-color--primary mdl-color-text--primary-contrast">
-                <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-color-text--primary-contrast" ng-click="saveImage()">
-                  Salvar como imagem
-                </button>
+              <div class="mdl-card__actions">
+                <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                  <input class="mdl-textfield__input" type="text" id="inicio" ng-model="inicio">
+                  <label class="mdl-textfield__label" for="inicio">Início</label>
+                </div>
+                <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                  <input class="mdl-textfield__input" type="text" id="fim" ng-model="fim">
+                  <label class="mdl-textfield__label" for="fim">Fim</label>
+                </div>
                 <hr>
-                <pre>{{html}}</pre>
+                <button class="mdl-button mdl-js-button mdl-js-ripple-effect" ng-click="updateChart(inicio, fim)">
+                  Atualizar Gráfico
+                </button>
               </div>
             </div>
-        </div>
-        <!-- <div class="mdl-cell mdl-cell--6-col mdl-cell--4-col-tablet" ng-controller="TaxaDeMortalidadeController as mortalidade">
+          </div>
+          <!-- <div class="mdl-cell mdl-cell--6-col mdl-cell--4-col-tablet" ng-controller="TaxaDeMortalidadeController as mortalidade">
           <div class="mdl-card mdl-shadow--4dp">
               <div class="mdl-card__title mdl-color--primary">
               <h2 class="mdl-card__title-text mdl-color-text--primary-contrast">{{cardlabel}}</h2>
@@ -124,29 +145,27 @@
               </div>
             </div>
         </div> -->
-        <div class="mdl-cell mdl-cell--12-col" id="teste">
-          <div class="mdl-card mdl-shadow--4dp">
+          <div class="mdl-cell mdl-cell--12-col" id="teste">
+            <div class="mdl-card mdl-shadow--4dp">
               <div class="mdl-card__title mdl-color--primary">
-              <h2 class="mdl-card__title-text mdl-color-text--primary-contrast">{{cardlabel}}</h2>
+                <h2 class="mdl-card__title-text mdl-color-text--primary-contrast">{{cardlabel}}</h2>
               </div>
-              <div class="chart">
-              </div>
-              <div class="mdl-card__actions  mdl-color--primary mdl-color-text--primary-contrast">
-
-              </div>
+              <div class="chart"></div>
+              <div class="mdl-card__actions  mdl-color--primary mdl-color-text--primary-contrast"></div>
             </div>
+          </div>
         </div>
-      </div>
-    </main>
-  </div>
-  <script type="text/javascript" src="vendors/jquery/dist/jquery.min.js"></script>
-  <script type="text/javascript" src="vendors/angular/angular.min.js"></script>
-  <script type="text/javascript" src="vendors/angular-route/angular-route.min.js"></script>
-  <script type="text/javascript" src="vendors/raphael/raphael.js"></script>
-  <script type="text/javascript" src="vendors/morris.js/morris.min.js"></script>
-  <script src="vendors/material-design-lite/material.min.js"></script>
-  <script type="text/javascript" src="js/app.js"></script>
-  <script type="text/javascript" src="js/controllers.js"></script>
-  <script type="text/javascript" src="js/svg2png.js"></script>
+      </main>
+    </div>
+    <script type="text/javascript" src="vendors/jquery/dist/jquery.min.js"></script>
+    <script type="text/javascript" src="vendors/angular/angular.min.js"></script>
+    <script type="text/javascript" src="vendors/angular-route/angular-route.min.js"></script>
+    <script type="text/javascript" src="vendors/raphael/raphael.js"></script>
+    <script type="text/javascript" src="vendors/morris.js/morris.min.js"></script>
+    <script src="vendors/material-design-lite/material.min.js"></script>
+    <script type="text/javascript" src="js/app.js"></script>
+    <script type="text/javascript" src="js/controllers.js"></script>
+    <script type="text/javascript" src="js/services/dateService.js"></script>
+    <script type="text/javascript" src="js/svg2png.js"></script>
   </body>
 </html>

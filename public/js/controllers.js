@@ -1,5 +1,5 @@
 angular.module('aghureport')
-  .controller('TaxaDePermanenciaController', function ($scope, $http) {
+  .controller('TaxaDePermanenciaController', function ($scope, $http, dateService) {
       $scope.chart = Morris.Bar({
         element: 'permanencia',
         data: [{}],
@@ -12,7 +12,10 @@ angular.module('aghureport')
 
       $scope.cardlabel = 'Taxa de Permanência';
 
-      $http.get('/indicador/G/2015-03-01/2016-03-01')
+      var dates = dateService.getDates();
+      console.log(dates);
+
+      $http.get('/indicador/G/' + dates[1] + '/' + dates[0])
             .success(function (data) {
               $scope.ocupacao = data;
 
@@ -26,6 +29,22 @@ angular.module('aghureport')
             });
 
       $scope.html = '';
+
+      $scope.updateChart = function (inicio, fim) {
+        $http.get('/indicador/G/' + inicio + '/' + fim)
+              .success(function (data) {
+                $scope.ocupacao = data;
+
+                // $scope.xaxis = 'competencia_internacao';
+                // $scope.yaxis = ['taxa_ocupacao'];
+                // $scope.label = ['Taxa de Permanência'];
+                $scope.chart.setData($scope.ocupacao);
+              })
+              .error(function (data, status) {
+                $scope.error = 'Erro' + data;
+              });
+      };
+
       $scope.saveImage = function () {
           el = document.querySelectorAll('#permanencia svg').item(0);
           saveSvgAsPng(el, 'Taxa_de_Permanencia.png', {

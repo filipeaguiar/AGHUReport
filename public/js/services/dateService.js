@@ -9,7 +9,7 @@ angular.module('aghureport').factory('dateService', function ($http) {
     today += '-01';
     lastYear = lastYear.toISOString().substring(0, 7);
     lastYear += '-01';
-    interval = [today, lastYear];
+    interval = [lastYear, today];
 
     return interval;
   };

@@ -15,21 +15,6 @@ angular.module('aghureport')
       var dates = dateService.getDates();
       console.log(dates);
 
-      $http.get('/indicador/G/' + dates[1] + '/' + dates[0])
-            .success(function (data) {
-              $scope.ocupacao = data;
-
-              // $scope.xaxis = 'competencia_internacao';
-              // $scope.yaxis = ['taxa_ocupacao'];
-              // $scope.label = ['Taxa de Permanência'];
-              $scope.chart.setData($scope.ocupacao);
-            })
-            .error(function (data, status) {
-              $scope.error = 'Erro' + data;
-            });
-
-      $scope.html = '';
-
       $scope.updateChart = function (inicio, fim) {
         $http.get('/indicador/G/' + inicio + '/' + fim)
               .success(function (data) {
@@ -44,6 +29,8 @@ angular.module('aghureport')
                 $scope.error = 'Erro' + data;
               });
       };
+
+      $scope.updateChart(dates[0], dates[1]);
 
       $scope.saveImage = function () {
           el = document.querySelectorAll('#permanencia svg').item(0);

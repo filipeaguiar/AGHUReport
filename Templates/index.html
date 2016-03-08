@@ -93,17 +93,9 @@
               <h2 class="mdl-card__title-text mdl-color-text--primary-contrast"><i class="material-icons">hotel</i> {{cardlabel}}</h2>
               </div>
               <div>
-                <div
-                class="chart"
-                id='permanencia'
-                bar-chart
-                bar-data='ocupacao'
-                bar-x='{{xaxis}}'
-                bar-y='yaxis'
-                bar-labels='label'
-                bar-hide-hover='true'
-                bar-colors='["#536DFE"]'>
-              </div>
+
+                  <div id="permanencia"></div>
+
               </div>
               <div class="mdl-card__actions  mdl-color--primary mdl-color-text--primary-contrast">
                 <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-color-text--primary-contrast" ng-click="saveImage()">
@@ -152,7 +144,6 @@
   <script type="text/javascript" src="vendors/angular-route/angular-route.min.js"></script>
   <script type="text/javascript" src="vendors/raphael/raphael.js"></script>
   <script type="text/javascript" src="vendors/morris.js/morris.min.js"></script>
-  <script type="text/javascript" src="vendors/angular-morris-chart/src/angular-morris-chart.js"></script>
   <script src="vendors/material-design-lite/material.min.js"></script>
   <script type="text/javascript" src="js/app.js"></script>
   <script type="text/javascript" src="js/controllers.js"></script>

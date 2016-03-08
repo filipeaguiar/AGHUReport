@@ -1,12 +1,25 @@
 angular.module('aghureport')
   .controller('TaxaDePermanenciaController', function ($scope, $http) {
+      $scope.chart = Morris.Bar({
+        element: 'permanencia',
+        data: [{}],
+        xkey: 'competencia_internacao',
+        ykeys: ['taxa_ocupacao'],
+        labels: ['Taxa de Permanência'],
+        hideHover: 'auto',
+        resize: true,
+      });
+
+      $scope.cardlabel = 'Taxa de Permanência';
+
       $http.get('/indicador/G/2015-03-01/2016-03-01')
             .success(function (data) {
               $scope.ocupacao = data;
-              $scope.xaxis = 'competencia_internacao';
-              $scope.yaxis = ['taxa_ocupacao'];
-              $scope.label = ['Taxa de Permanência'];
-              $scope.cardlabel = 'Taxa de Permanência';
+
+              // $scope.xaxis = 'competencia_internacao';
+              // $scope.yaxis = ['taxa_ocupacao'];
+              // $scope.label = ['Taxa de Permanência'];
+              $scope.chart.setData($scope.ocupacao);
             })
             .error(function (data, status) {
               $scope.error = 'Erro' + data;

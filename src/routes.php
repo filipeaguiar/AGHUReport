@@ -1,5 +1,4 @@
 <?php
-use AGHUReport;
 
 $app->get('/', function(\Slim\Http\Request $req, \Slim\Http\Response $res){
     return $res->write(file_get_contents(__DIR__ . '/../Templates/index.html'));
@@ -25,5 +24,6 @@ $app->get('/indicador/{tipo}/{inicio}/{fim}', function(\Slim\Http\Request $req, 
 
 $app->get('/rep', function(\Slim\Http\Request $req, \Slim\Http\Response $res){
   $rep = new AGHUReport\Repositories\IndicadorRepository;
-  return $rep->getMortalidadeByEspecialidade('1426');
+  $rep = $rep->getMortalidadeByEspecialidade('1426');
+  return $res->write($rep);
 });

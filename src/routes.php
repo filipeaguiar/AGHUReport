@@ -1,4 +1,5 @@
 <?php
+use AGHUReport;
 
 $app->get('/', function(\Slim\Http\Request $req, \Slim\Http\Response $res){
     return $res->write(file_get_contents(__DIR__ . '/../Templates/index.html'));
@@ -20,4 +21,9 @@ $app->get('/indicador/{tipo}/{inicio}/{fim}', function(\Slim\Http\Request $req, 
   $indicador = new AGHUReport\Models\Indicador;
   $indicador = $indicador->where('tipo_indicador', $args['tipo'])->whereBetween('competencia_internacao', [$args['inicio'], $args['fim']])->orderBy('competencia_internacao', 'asc')->get();
   return $res->write($indicador->toJson())->withHeader('Content-Type', 'application/json');
+});
+
+$app->get('/rep', function(\Slim\Http\Request $req, \Slim\Http\Response $res){
+  $rep = new AGHUReport\Repositories\IndicadorRepository;
+  return $rep->getMortalidadeByEspecialidade('1426');
 });

@@ -18,6 +18,6 @@ class Indicador extends Model
     const UPDATED_AT = 'data_alteracao';
 
     protected function getDateFormat() {
-      return 'm / y';
+      return 'm/Y';
     }
 }

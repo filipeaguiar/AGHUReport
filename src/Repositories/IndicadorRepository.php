@@ -20,10 +20,12 @@ class IndicadorRepository extends BaseRepository
   public function getMortalidadeByEspecialidade($id)
   {
     $result = Indicador::where('esp_seq', $id);
-    $array = $result->map( function($item,$key){
+    $values = $result->get();
 
-    });
+    foreach ($values as $item) {
+      
+    }
 
-    return $result->get();
+    return $values;
   }
 }

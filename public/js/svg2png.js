@@ -73,7 +73,8 @@
 
             try {
               if (selectorText) {
-                match = el.querySelector(selectorText);
+                //match = el.querySelector(selectorText);
+                match = jQuery(selectorText);
               }
             } catch(err) {
               console.warn('Invalid CSS selector "' + selectorText + '"', err);

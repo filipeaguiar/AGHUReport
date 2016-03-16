@@ -13,7 +13,6 @@ angular.module('aghureport')
       $scope.cardlabel = 'Taxa de Permanência';
 
       var dates = dateService.getDates();
-      console.log(dates);
 
       $scope.updateChart = function (inicio, fim) {
         $http.get('/indicador/G/' + inicio + '/' + fim)

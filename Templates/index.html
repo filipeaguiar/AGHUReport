@@ -123,24 +123,50 @@
               </div>
             </div>
           </div>
-          <!-- <div class="mdl-cell mdl-cell--6-col mdl-cell--4-col-tablet" ng-controller="TaxaDeMortalidadeController as mortalidade">
-          <div class="mdl-card mdl-shadow--4dp">
+
+          <!-- Card de Mortalidede -->
+
+          <div class="mdl-cell mdl-cell--6-col mdl-cell--4-col-tablet" ng-controller="TaxaDeMortalidadeController">
+            <div class="mdl-card mdl-shadow--4dp">
               <div class="mdl-card__title mdl-color--primary">
-              <h2 class="mdl-card__title-text mdl-color-text--primary-contrast">{{cardlabel}}</h2>
+                <h2 class="mdl-card__title-text mdl-color-text--primary-contrast">
+                  <i class="material-icons">plus</i>
+                  {{cardlabel}}</h2>
               </div>
-              <div class="chart"
-              bar-chart
-              bar-data='mortalidade'
-              bar-x='{{xaxis}}'
-              bar-y='yaxis'
-              bar-labels='label'
-              bar-colors='["#D32F2F"]'>
+              <div>
+                <div id="mortalidade"></div>
               </div>
-              <div class="mdl-card__actions  mdl-color--primary mdl-color-text--primary-contrast">
-                Menu
+              <div class="mdl-card__actions">
+                <div class="mdl-grid">
+                  <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label mdl-cell mdl-cell--6-col">
+                    <input class="mdl-textfield__input" type="text" id="inicio" ng-model="inicio">
+                    <label class="mdl-textfield__label" for="inicio">Início</label>
+                  </div>
+                  <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label mdl-cell mdl-cell--6-col">
+                    <input class="mdl-textfield__input" type="text" id="fim" ng-model="fim">
+                    <label class="mdl-textfield__label" for="fim">Fim</label>
+                  </div>
+                </div>
+                <div class="mdl-grid">
+                  <div class="mdl-cell mdl-cell--4-col">
+                    <button class="mdl-button mdl-js-button mdl-js-ripple-effect" ng-click="updateChart(inicio, fim)">
+                      <i class="material-icons">autorenew</i> Atualizar
+                    </button>
+                  </div>
+                  <div class="mdl-cell mdl-cell--4-col">
+                    <button class="mdl-button mdl-js-button mdl-js-ripple-effect" ng-click="saveImage()">
+                      <i class="material-icons">archive</i> Salvar
+                    </button>
+                  </div>
+                  <div class="mdl-cell mdl-cell--4-col">
+                    <button class="mdl-button mdl-js-button mdj-js-ripple-effect">
+                      <i class="material-icons">view_list</i> Copiar
+                    </button>
+                  </div>
+                </div>
               </div>
             </div>
-        </div> -->
+          </div>
 
           <!-- <div class="mdl-cell mdl-cell--12-col" id="teste">
             <div class="mdl-card mdl-shadow--4dp">
@@ -159,7 +185,7 @@
     <script type="text/javascript" src="vendors/angular/angular.min.js"></script>
     <script type="text/javascript" src="vendors/angular-route/angular-route.min.js"></script>
     <script type="text/javascript" src="vendors/raphael/raphael.js"></script>
-    <script type="text/javascript" src="vendors/morris.js/morris.min.js"></script>
+    <script type="text/javascript" src="vendors/morris.js/morris.js"></script>
     <script src="vendors/material-design-lite/material.min.js"></script>
     <script type="text/javascript" src="js/app.js"></script>
     <script type="text/javascript" src="js/controllers.js"></script>

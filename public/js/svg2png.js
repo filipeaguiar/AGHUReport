@@ -3,16 +3,32 @@
 
   var doctype = '<?xml version="1.0" standalone="no"?><!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">';
 
+  function isElement(obj) {
+    return obj instanceof HTMLElement || obj instanceof SVGElement;
+  }
+
+  function requireDomNode(el) {
+    if (!isElement(el)) {
+      throw new Error('an HTMLElement or SVGElement is required; got ' + el);
+    }
+  }
+
   function isExternal(url) {
     return url && url.lastIndexOf('http',0) == 0 && url.lastIndexOf(window.location.host) == -1;
   }
 
   function inlineImages(el, callback) {
-    var images = el.querySelectorAll('image');
-    var left = images.length;
-    if (left == 0) {
-      callback();
-    }
+    requireDomNode(el);
+
+    var images = el.querySelectorAll('image'),
+        left = images.length,
+        checkDone = function() {
+          if (left === 0) {
+            callback();
+          }
+        };
+
+    checkDone();
     for (var i = 0; i < images.length; i++) {
       (function(image) {
         var href = image.getAttributeNS("http://www.w3.org/1999/xlink", "href");
@@ -26,23 +42,24 @@
         var ctx = canvas.getContext('2d');
         var img = new Image();
         href = href || image.getAttribute('href');
-        img.src = href;
-        img.onload = function() {
-          canvas.width = img.width;
-          canvas.height = img.height;
-          ctx.drawImage(img, 0, 0);
-          image.setAttributeNS("http://www.w3.org/1999/xlink", "href", canvas.toDataURL('image/png'));
-          left--;
-          if (left == 0) {
-            callback();
+        if (href) {
+          img.src = href;
+          img.onload = function() {
+            canvas.width = img.width;
+            canvas.height = img.height;
+            ctx.drawImage(img, 0, 0);
+            image.setAttributeNS("http://www.w3.org/1999/xlink", "href", canvas.toDataURL('image/png'));
+            left--;
+            checkDone();
           }
-        }
-        img.onerror = function() {
-          console.log("Could not load "+href);
-          left--;
-          if (left == 0) {
-            callback();
+          img.onerror = function() {
+            console.log("Could not load "+href);
+            left--;
+            checkDone();
           }
+        } else {
+          left--;
+          checkDone();
         }
       })(images[i]);
     }
@@ -73,8 +90,7 @@
 
             try {
               if (selectorText) {
-                //match = el.querySelector(selectorText);
-                match = jQuery(selectorText);
+                match = el.querySelector(selectorText);
               }
             } catch(err) {
               console.warn('Invalid CSS selector "' + selectorText + '"', err);
@@ -112,9 +128,7 @@
   }
 
   out$.svgAsDataUri = function(el, options, cb) {
-    if(!el){
-      throw new Error('first argument to `svgAsDataUri` must be a DOM element, is', el);
-    }
+    requireDomNode(el);
 
     options = options || {};
     options.scale = options.scale || 1;
@@ -142,8 +156,12 @@
       }
 
       clone.setAttribute("version", "1.1");
-      clone.setAttributeNS(xmlns, "xmlns", "http://www.w3.org/2000/svg");
-      clone.setAttributeNS(xmlns, "xmlns:xlink", "http://www.w3.org/1999/xlink");
+      if (!clone.getAttribute('xmlns')) {
+        clone.setAttributeNS(xmlns, "xmlns", "http://www.w3.org/2000/svg");
+      }
+      if (!clone.getAttribute('xmlns:xlink')) {
+        clone.setAttributeNS(xmlns, "xmlns:xlink", "http://www.w3.org/1999/xlink");
+      }
       clone.setAttribute("width", width * options.scale);
       clone.setAttribute("height", height * options.scale);
       clone.setAttribute("viewBox", [
@@ -172,9 +190,7 @@
   }
 
   out$.svgAsPngUri = function(el, options, cb) {
-    if(!el){
-      throw new Error('first argument to `svgAsPngUri` must be a DOM element, is', el);
-    }
+    requireDomNode(el);
 
     out$.svgAsDataUri(el, options, function(uri) {
       var image = new Image();
@@ -201,14 +217,15 @@
         }
         cb(png);
       }
+      image.onerror = function(error) {
+        console.error('There was an error loading the data URI as an image', error);
+      }
       image.src = uri;
     });
   }
 
   out$.saveSvgAsPng = function(el, name, options) {
-    if(!el){
-      throw new Error('first argument to `saveSvgAsPng` must be a DOM element, is', el);
-    }
+    requireDomNode(el);
 
     options = options || {};
     out$.svgAsPngUri(el, options, function(uri) {

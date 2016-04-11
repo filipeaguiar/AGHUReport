@@ -3,7 +3,7 @@ namespace AGHUReport\Models;
 use AGHUReport\Services\DBConnect as DBConnect;
 use Illuminate\Database\Eloquent\Model;
 
-class Permanencia extends Model
+class Ocupacao extends Model
 {
     /**
      * The table associated with the model.

@@ -1,2 +1,2 @@
 /* global angular */
-var aghureport = angular.module('aghureport', []);
+angular.module('aghureport', []);

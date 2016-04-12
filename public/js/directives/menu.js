@@ -6,8 +6,7 @@ angular.module('aghureport').directive('ngMenu', function(){
            link: function (){
               angular.element(document).ready( function (){
                componentHandler.upgradeAllRegistered();
-               console.log('Chegou');
              });
            }
        };
-   });
+ });

@@ -1,2 +1,2 @@
 /* global angular */
-angular.module('aghureport', []);
+angular.module('aghureport', ['ngRoute']);

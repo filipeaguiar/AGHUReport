@@ -27,3 +27,12 @@ $app->get('/rep', function(\Slim\Http\Request $req, \Slim\Http\Response $res){
   $rep = $rep->getMortalidadeByEspecialidade('1426');
   return $res->write($rep);
 });
+
+$app->get('/pi', function(\Slim\Http\Request $req, \Slim\Http\Response $res){
+  $indicador = new \AGHUReport\Models\IndicadorPolimorfico;
+  $output = "";
+  foreach ($indicador as $in) {
+    $output = $output.$in;
+  }
+  return $res->write($output);
+});

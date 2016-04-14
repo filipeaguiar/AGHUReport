@@ -7,7 +7,7 @@
     "pserver": "php -S 0.0.0.0:8080 -t public public/index.php",
     "test": "echo \"Error: no test specified\" && exit 1",
     "preserver": "php -S 0.0.0.0:8080 -t public public/index.php &",
-    "server": "browser-sync start --proxy \"localhost:8080\" --files \"Templates/*.html, public/css/*.css, public/js/*.js\""
+    "server": "browser-sync start --proxy \"localhost:8080\" --files \"Templates/*.html, public/css/*.css, public/templates/*.html, public/templates/partials/*.html, public/js/*.js\""
   },
   "keywords": [
     "Report",

@@ -1,14 +1,13 @@
-angular.module('aghureport').factory('indicadorService', ['dateService', function (dateService) {
+angular.module('aghureport').
+  service('indicadorService', function ($http) {
 
-  /**
-  * @param {string} Tipo - Tipo do indicador (G, E, U, C)
-  * @param {string} Início - Início do período
-  * @param {string} Fim - Fim do período
-  */
+    /**
+    * @param {string} Tipo - Tipo do indicador (G, E, U, C)
+    * @param {string} Início - Início do período
+    * @param {string} Fim - Fim do período
+    */
 
-  var _getIndicadores = function ( tipo, inicio, fim) {
-    $http.get('/indicador/' + tipo + '/' + inicio + fim).
-      success();
-  };
-
-}]);
+    this.getIndicadores = function ( tipo, inicio, fim ) {
+  		return $http.get('/indicador/' + tipo + '/' + inicio + '/' + fim)
+  	};
+});

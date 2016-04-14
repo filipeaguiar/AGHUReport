@@ -6,6 +6,9 @@ angular.module('aghureport').config( function ($routeProvider) {
     when('/especialidades',{
       templateUrl: "templates/especialidades.html"
     }).
+    when('/clinicas',{
+      templateUrl: "templates/clinicas.html"
+    }).
     otherwise({
       redirectTo: '/home'
     });

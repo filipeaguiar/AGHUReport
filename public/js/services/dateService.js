@@ -1,4 +1,4 @@
-angular.module('aghureport').factory('dateService', function ($http) {
+angular.module('aghureport').factory('dateService', function () {
 
   var _getDates = function () {
 

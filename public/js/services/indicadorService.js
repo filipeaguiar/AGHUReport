@@ -8,6 +8,6 @@ angular.module('aghureport').
     */
 
     this.getIndicadores = function ( tipo, inicio, fim ) {
-  		return $http.get('/indicador/' + tipo + '/' + inicio + '/' + fim)
+  		return $http.get('/indicador/' + tipo + '/' + inicio + '/' + fim);
   	};
 });
